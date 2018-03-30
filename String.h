@@ -14,17 +14,19 @@ class String{
 	public:
 	static size_t MAX_SIZE;	
 
-	//Constructors/Destructor
+	//Constructors/Destructor 
   String(const String& tocopy);
+  String(char* cstr);
+
 
 	//Operators
-  String& operator=(const char* s);
+  //String& operator=(const char* s);
 
 	//Methodes
 
 
 	//Destructor
-	~String();
+	//~String();
 };
 
 
