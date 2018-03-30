@@ -15,7 +15,7 @@ class String{
 	static size_t MAX_SIZE;	
 
 	//Constructors/Destructor
-
+  String(const String& tocopy);
 
 	//Operators
 
