@@ -8,7 +8,7 @@ class String{
 	public:
 	//Attributs
 	size_t size_;
-	char* c_str_;
+	char* c_str_; //pointeur vers la premiere case du tableau de char
 	size_t capacity_;
 	
 	protected:
@@ -23,7 +23,8 @@ class String{
 	//Methodes
 
 
-
+	//Destructor
+	~String();
 };
 
 
