@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <cstring>
 #include "String.h"
+#include <cstring>
 
 //size_t String::MAX_SIZE;
 
@@ -16,7 +17,18 @@ String::String(const String& tocopy){
 	capacity_ = t_cap;
 }
 	
-	
+String::String(char* cstr)
+{
+	long Size = strlen(cstr);
+	size_ = Size;
+	char* ptr = new char[size_+1];
+	ptr[size_]=0;
+	strcpy(ptr,cstr);
+	char* string_ptr = ptr;
+	capacity_ = size_ + 1;            
+}
+
+
 //Getters
 
 //Operators

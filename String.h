@@ -5,13 +5,13 @@
 #include <stdlib.h>
 
 class String{
-	public:
+	protected:
 	//Attributs
 	size_t size_;
 	char* c_str_; //pointeur vers la premiere case du tableau de char
 	size_t capacity_;
 	
-	protected:
+	public:
 	static size_t MAX_SIZE;	
 
 	//Constructors/Destructor
