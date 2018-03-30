@@ -16,15 +16,17 @@ class String{
 
 	//Constructors/Destructor
   String(const String& tocopy);
+	String(char* cstr);
 
 	//Operators
 
 
 	//Methodes
+	size_t length() const;
 
 
 	//Destructor
-	~String();
+//	~String();
 };
 
 

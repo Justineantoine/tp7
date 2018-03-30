@@ -27,14 +27,18 @@ String::String(char* cstr)
 
 //Getters
 
+size_t String::length() const{
+	return size_;
+}
+
 //Operators
 
 //Methodes
 
 //Destructor
-String::~String()
+/*String::~String()
 {
-delete []c_str_;
-c_str_ = nullptr;
-size_ = 0;
-}
+	delete []c_str_;
+	c_str_ = nullptr;
+	size_ = 0;
+}*/
