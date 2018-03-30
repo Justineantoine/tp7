@@ -8,9 +8,12 @@
 //Constructors
 String::String(const String& tocopy){
 	//copying attributs of tocopy in 
-	size_ = tocopy.size_;
-	c_str_ = tocopy.c_str_;
-	capacity_ = tocopy.capacity_;
+	size_t t_size = tocopy.size_;
+	char * t_c_str = tocopy.c_str_;
+	size_t t_cap = tocopy.capacity_;
+	size_ = t_size;
+	c_str_ = t_c_str;
+	capacity_ = t_cap;
 }
 	
 String::String(char* cstr)
@@ -32,6 +35,14 @@ size_t String::length() const{
 }
 
 //Operators
+/*
+String& operator=(const char* s){
+	size_t s_size = strlen(*s);
+	char* s_str = s
+	size_ = s_size;
+	c_str_ = s_str;
+}
+*/
 
 //Methodes
 

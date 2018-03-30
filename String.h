@@ -19,7 +19,7 @@ class String{
 	String(char* cstr);
 
 	//Operators
-
+  //String& operator=(const char* s);
 
 	//Methodes
 	size_t length() const;
