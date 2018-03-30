@@ -18,7 +18,7 @@ class String{
   String(const String& tocopy);
 
 	//Operators
-
+  String& operator=(const char* s);
 
 	//Methodes
 
