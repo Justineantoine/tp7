@@ -5,16 +5,17 @@
 #include <stdlib.h>
 
 class String{
-	public:
+	protected:
 	//Attributs
 	size_t size_;
 	char* c_str_;
 	size_t capacity_;
 	
-	protected:
+	public:
 	static size_t MAX_SIZE;	
 
 	//Constructors/Destructor
+	String(char* cstr);
 
 
 	//Operators
