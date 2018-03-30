@@ -1,6 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "String.h"
 
-size_t String::MAX_SIZE;
+//size_t String::MAX_SIZE;
 
 //Constructors/Destructor
 

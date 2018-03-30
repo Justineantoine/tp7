@@ -1,6 +1,9 @@
 #ifndef STRING_H
 #define STRING_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 class String{
 	public:
 	//Attributs
@@ -9,7 +12,7 @@ class String{
 	size_t capacity_;
 	
 	protected:
-	static size_t MAX_SIZE const;	
+	static size_t MAX_SIZE;	
 
 	//Constructors/Destructor
 
