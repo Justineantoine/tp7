@@ -6,12 +6,14 @@
 void test_constructor_cstr();
 void test_length();
 void test_copy_constructor();
+void test_to_string();
 
 int main(int argc, char* argv[]){
   std::cout << "Hello World !" << std::endl;
-	//test_constructor_cstr();
+	test_constructor_cstr();
 	test_length();
 	test_copy_constructor();
+	test_to_string();
   return 0;
 }
 
@@ -35,3 +37,8 @@ void test_copy_constructor(){
 	std::cout << &str2 << std::endl;
 }
 
+void test_to_string(){
+	char chaine[] = "Bonjour";
+	String s(chaine);
+	s.to_string();
+}

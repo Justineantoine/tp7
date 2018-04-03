@@ -24,7 +24,8 @@ String::String(char* cstr)
 	ptr[size_]=0;
 	strcpy(ptr,cstr);
 	char* string_ptr = ptr;
-	capacity_ = size_ + 1;            
+	capacity_ = size_ + 1;      
+	c_str_=ptr;      
 }
 
 
@@ -32,6 +33,12 @@ String::String(char* cstr)
 
 size_t String::length() const{
 	return size_;
+}
+
+void String::to_string(){
+	for(int i=0;i<=size_;++i){
+		printf("%s",c_str_[i]);
+	}
 }
 
 //Operators

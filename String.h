@@ -23,10 +23,11 @@ class String{
 
 	//Methodes
 	size_t length() const;
+	void to_string();
 
 
 	//Destructor
-//	~String();
+	//	~String();
 };
 
 
