@@ -3,7 +3,7 @@
 #include "String.h"
 #include <cstring>
 
-//size_t String::MAX_SIZE;
+const size_t String::MAX_SIZE;
 
 //Constructors
 String::String(const String& tocopy){
@@ -52,6 +52,11 @@ String& operator=(const char* s){
 */
 
 //Methodes
+
+size_t String::max_size() const{
+	return MAX_SIZE;
+}
+
 
 //Destructor
 /*String::~String()

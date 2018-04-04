@@ -12,7 +12,7 @@ class String{
 	size_t capacity_;
 	
 	public:
-	static size_t MAX_SIZE;	
+	const static size_t MAX_SIZE = 150;	
 
 	//Constructors/Destructor
   String(const String& tocopy);
@@ -24,6 +24,7 @@ class String{
 	//Methodes
 	size_t length() const;
 	void to_string();
+	size_t max_size() const;
 
 
 	//Destructor
