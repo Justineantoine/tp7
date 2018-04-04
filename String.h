@@ -25,6 +25,7 @@ class String{
 	size_t length() const;
 	void to_string();
 	size_t max_size() const;
+	const char* c_str() const;
 
 
 	//Destructor

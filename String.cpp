@@ -57,6 +57,10 @@ size_t String::max_size() const{
 	return MAX_SIZE;
 }
 
+const char* String::c_str() const{
+	return c_str_;
+}
+
 
 //Destructor
 /*String::~String()
