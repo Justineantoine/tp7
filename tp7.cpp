@@ -10,6 +10,7 @@ void test_to_string();
 void test_max_size();
 void test_c_str();
 void test_resize();
+void test_equal_operator_char();
 
 int main(int argc, char* argv[]){
   std::cout << "Hello World !" << std::endl;
@@ -20,6 +21,7 @@ int main(int argc, char* argv[]){
   test_max_size();
 	test_c_str();
 	test_resize();
+	test_equal_operator_char();
   return 0;
 }
 
@@ -73,4 +75,13 @@ void test_resize(){
 	std::cout << "Test resize avec n > size_" << std::endl;
 	std::cout << "Nouvelle taille : " << str2.length() << std::endl;
 	std::cout << "Nouvelle chaine : " << str2.c_str() << std::endl;
+}
+
+void test_equal_operator_char(){
+	char chaine[] = "Bonjour";
+	String str1(chaine);
+	str1 = 'A';
+	std::cout << "Test operator=" << std::endl;
+	std::cout << "Nouvelle chaine : " << str1.c_str() << std::endl;
+	std::cout << "Nouvelle taille : " << str1.length() << std::endl;
 }

@@ -20,6 +20,7 @@ class String{
 
 	//Operators
   //String& operator=(const char* s);
+	String& operator=(char c);
 
 	//Methodes
 	size_t length() const;

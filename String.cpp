@@ -51,6 +51,15 @@ String& operator=(const char* s){
 }
 */
 
+String& String::operator=(char c){
+	char* ptr = new char[2];
+	ptr[0] = c;
+	ptr[size_] = '\0';
+	c_str_ = ptr;
+	size_ = 1;
+	return *this; //Renvoie l'objet lui-même (qui a été modifié)
+}
+
 //Methodes
 
 size_t String::max_size() const{
