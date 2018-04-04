@@ -61,6 +61,32 @@ const char* String::c_str() const{
 	return c_str_;
 }
 
+void String::resize(size_t n, char c){
+	if (n < size_){
+		char* ptr = new char[n+1];
+		int i;
+		for (i=0;i<n;++i){
+			ptr[i] = c_str_[i];
+		}
+		ptr[n] = '\0';
+		c_str_ = ptr;
+		size_ = n;
+	}
+	if (n > size_){
+		char* ptr = new char[n+1];
+		int i;
+		for (i=0;i<size_;++i){
+			ptr[i] = c_str_[i];
+		}
+		int j;
+		for (j=size_;j<n;++j){
+			ptr[j] = c;
+		}
+		ptr[n] = '\0';
+		c_str_ = ptr;
+		size_ = n;
+	}
+}
 
 //Destructor
 /*String::~String()

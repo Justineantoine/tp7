@@ -9,6 +9,7 @@ void test_copy_constructor();
 void test_to_string();
 void test_max_size();
 void test_c_str();
+void test_resize();
 
 int main(int argc, char* argv[]){
   std::cout << "Hello World !" << std::endl;
@@ -18,6 +19,7 @@ int main(int argc, char* argv[]){
 	//test_to_string();
   test_max_size();
 	test_c_str();
+	test_resize();
   return 0;
 }
 
@@ -57,4 +59,18 @@ void test_c_str(){
 	char chaine[] = "Bonjour";
 	String str(chaine);
 	std::cout << "Test c_str() : " << str.c_str() << std::endl;
+}
+
+void test_resize(){
+	char chaine[] = "Bonjour";
+	String str1(chaine);
+	str1.resize(4,'d');
+	std::cout << "Test resize avec n < size_" << std::endl;
+	std::cout << "Nouvelle taille : " << str1.length() << std::endl;
+	std::cout << "Nouvelle chaine : " << str1.c_str() << std::endl;
+	String str2(chaine);
+	str2.resize(10,'d');
+	std::cout << "Test resize avec n > size_" << std::endl;
+	std::cout << "Nouvelle taille : " << str2.length() << std::endl;
+	std::cout << "Nouvelle chaine : " << str2.c_str() << std::endl;
 }
