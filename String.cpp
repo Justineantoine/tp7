@@ -76,6 +76,14 @@ size_t String::max_size() const{
 	return MAX_SIZE;
 }
 
+bool String::empty(){ //retourne "true" si la string est vide
+	if (size_ == 0){
+		return true;
+	}
+	else {
+		return false;
+	} 
+}
 void String::resize(size_t n, char c){
 	if (n < size_){
 		char* ptr = new char[n+1];
