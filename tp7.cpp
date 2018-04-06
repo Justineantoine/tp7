@@ -5,6 +5,7 @@
 
 void test_constructor_cstr();
 void test_length();
+void test_capacity();
 void test_copy_constructor();
 void test_to_string();
 void test_max_size();
@@ -16,8 +17,9 @@ int main(int argc, char* argv[]){
   std::cout << "Hello World !" << std::endl;
 	test_constructor_cstr();
 	test_length();
+	test_capacity();
 	test_copy_constructor();
-	//test_to_string();
+	test_to_string();
   test_max_size();
 	test_c_str();
 	test_resize();
@@ -37,6 +39,11 @@ void test_length(){
 	std::cout << str1.length() << std::endl;
 }
 
+void test_capacity(){
+	char chaine[] = "Bonjour";
+	String str1(chaine);
+	std::cout << str1.capacity() << std::endl;
+}
 void test_copy_constructor(){
 	char chaine[] = "Bonjour";
 	String str1(chaine);
