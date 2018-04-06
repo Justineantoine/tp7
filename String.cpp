@@ -16,7 +16,7 @@ String::String(const String& tocopy){
 	capacity_ = t_cap;
 }
 	
-String::String(char* cstr)
+String::String(const char* cstr)
 {
 	long Size = strlen(cstr);
 	size_ = Size;
@@ -33,12 +33,6 @@ String::String(char* cstr)
 
 size_t String::length() const{
 	return size_;
-}
-
-void String::to_string(){
-	for(int i=0;i<=size_;++i){
-		printf("%s",c_str_[i]);
-	}
 }
 
 const char* String::c_str() const{
@@ -110,6 +104,17 @@ void String::resize(size_t n, char c){
 		size_ = n;
 	}
 }
+
+/*void reserve(size_t n){
+	if (n > MAX_SIZE){
+		std::cout << "La taille à réserver est plus grande que la taille maximale autorisée" << st::endl;
+	}
+	else {
+		if (n < size_ + 1){
+			n = size_ +1
+		}
+	}
+}*/
 
 //Destructor
 String::~String(){
