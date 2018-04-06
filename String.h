@@ -31,10 +31,11 @@ class String{
 	bool empty();
 	const char* c_str() const;
 	void resize(size_t n, char c);
+	//void reserve(size_t n);
 
 
 	//Destructor
-	//	~String();
+	~String();
 };
 
 //Non member fonctions

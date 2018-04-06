@@ -75,7 +75,7 @@ size_t String::max_size() const{
 	return MAX_SIZE;
 }
 
-bool String::empty(){ //retourne "true" si la string est vide
+bool String::empty(){ //retourne "1" si la string est vide
 	if (size_ == 0){
 		return true;
 	}
@@ -110,15 +110,21 @@ void String::resize(size_t n, char c){
 	}
 }
 
-//Destructor
-/*String::~String()
-{
-	delete []c_str_;
-	c_str_ = nullptr;
-	size_ = 0;
+/*void reserve(size_t n){
+	if (n > MAX_SIZE){
+		std::cout << "La taille à réserver est plus grande que la taille maximale autorisée" << st::endl;
+	}
+	else {
+		if (n < size_ + 1){
+			n = size_ +1
+		}
+	}
 }*/
 
-//Non member fonctions
+//Destructor
+String::~String(){
+	delete[] c_str_;
+}
 
 String operator+(const String& lhs, const char* rhs){
 	String str1(lhs);
