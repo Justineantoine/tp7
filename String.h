@@ -5,6 +5,8 @@
 #include <stdlib.h>
 
 class String{
+  friend String operator+(const String& lhs, const char* rhs);
+
 	protected:
 	//Attributs
 	size_t size_;
@@ -16,7 +18,7 @@ class String{
 
 	//Constructors/Destructor
   String(const String& tocopy);
-	String(char* cstr);
+	String(const char* cstr);
 
 	//Operators
   //String& operator=(const char* s);
@@ -34,7 +36,9 @@ class String{
 	//	~String();
 };
 
+//Non member fonctions
 
+String operator+ (const String& lhs, const char* rhs);
 
 
 

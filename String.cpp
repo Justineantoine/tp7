@@ -16,7 +16,7 @@ String::String(const String& tocopy){
 	capacity_ = t_cap;
 }
 	
-String::String(char* cstr)
+String::String(const char* cstr)
 {
 	long Size = strlen(cstr);
 	size_ = Size;
@@ -104,3 +104,26 @@ void String::resize(size_t n, char c){
 	c_str_ = nullptr;
 	size_ = 0;
 }*/
+
+//Non member fonctions
+
+String operator+(const String& lhs, const char* rhs){
+	String str1(lhs);
+	String str2(rhs);
+	size_t size1 = str1.length();
+	size_t size2 = str2.length();
+	size_t size = size1 + size2;
+	char* ptr = new char[size+1];
+	int i;
+	for (i=0;i<size1;++i){
+		ptr[i] = str1.c_str_[i];
+	}
+	int j;
+	for (j=size1;j<size;++j){
+		ptr[j] = str2.c_str_[j-size1];
+	}
+	ptr[size] = '\0';
+	String str(ptr);
+	delete[] ptr;
+	return str;
+}
