@@ -13,6 +13,7 @@ void test_empty();
 void test_c_str();
 void test_resize();
 void test_equal_operator_char();
+void test_plus_operator_charptr();
 
 int main(int argc, char* argv[]){
   std::cout << "Hello World !" << std::endl;
@@ -25,6 +26,7 @@ int main(int argc, char* argv[]){
 	test_c_str();
 	test_resize();
 	test_equal_operator_char();
+	test_plus_operator_charptr();
   return 0;
 }
 
@@ -96,3 +98,14 @@ void test_equal_operator_char(){
 	std::cout << "Nouvelle chaine : " << str1.c_str() << std::endl;
 	std::cout << "Nouvelle taille : " << str1.length() << std::endl;
 }
+
+void test_plus_operator_charptr(){
+	char chaine1[] = "Bonjour";
+	char chaine2[] = ", ça va ?";
+	String str1(chaine1);
+	String str3 = str1 + chaine2;
+	std::cout << "Test operator+" << std::endl;
+	std::cout << "Nouvelle chaine : " << str3.c_str() << std::endl;
+	std::cout << "Nouvelle taille : " << str3.length() << std::endl;
+}
+
