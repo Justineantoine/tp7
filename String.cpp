@@ -76,7 +76,7 @@ size_t String::max_size() const{
 	return MAX_SIZE;
 }
 
-bool String::empty(){ //retourne "true" si la string est vide
+bool String::empty(){ //retourne "1" si la string est vide
 	if (size_ == 0){
 		return true;
 	}
@@ -112,9 +112,7 @@ void String::resize(size_t n, char c){
 }
 
 //Destructor
-/*String::~String()
-{
-	delete []c_str_;
-	c_str_ = nullptr;
-	size_ = 0;
-}*/
+String::~String(){
+	delete[] c_str_;
+}
+

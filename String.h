@@ -33,7 +33,7 @@ class String{
 
 
 	//Destructor
-	//	~String();
+	~String();
 };
 
 

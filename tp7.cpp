@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
 	test_constructor_cstr();
 	test_length();
 	test_capacity();
-	test_copy_constructor();
+	//test_copy_constructor();
 	//test_to_string();
   test_max_size();
   test_empty();
