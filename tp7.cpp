@@ -12,6 +12,7 @@ void test_max_size();
 void test_empty();
 void test_c_str();
 void test_resize();
+void test_reserve();
 void test_equal_operator_char();
 void test_plus_operator_charptr();
 
@@ -25,6 +26,7 @@ int main(int argc, char* argv[]){
   test_empty();
 	test_c_str();
 	test_resize();
+	test_reserve();
 	test_equal_operator_char();
 	test_plus_operator_charptr();
   return 0;
@@ -90,6 +92,13 @@ void test_resize(){
 	std::cout << "Nouvelle chaine : " << str2.c_str() << std::endl;
 }
 
+void test_reserve(){
+	char chaine[] = "Bonjour";
+	String str(chaine);
+	str.reserve(10);
+	std::cout << "nouvelle capacité : " << str.capacity() << std::endl;
+}	
+	
 void test_equal_operator_char(){
 	char chaine[] = "Bonjour";
 	String str1(chaine);

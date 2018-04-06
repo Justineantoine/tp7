@@ -110,16 +110,23 @@ void String::resize(size_t n, char c){
 	}
 }
 
-/*void reserve(size_t n){
+void String::reserve(size_t n){
 	if (n > MAX_SIZE){
-		std::cout << "La taille à réserver est plus grande que la taille maximale autorisée" << st::endl;
+		printf("%s\n", "La taille à réserver est plus grande que la taille maximale autorisée");
 	}
 	else {
 		if (n < size_ + 1){
-			n = size_ +1
+			n = size_ +1;
 		}
+		char* future_c_str = new char[n];
+		for (int i = 0; i < size_ + 1; ++i){ //copie la chaîne de caractère dans le nouvel espace alloué
+			future_c_str[i] = c_str_[i];
+		}
+		c_str_ = future_c_str;
+		capacity_ = n;
+		
 	}
-}*/
+}
 
 //Destructor
 String::~String(){
