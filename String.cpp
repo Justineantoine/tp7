@@ -59,6 +59,7 @@ String& operator=(const char* s){
 */
 
 String& String::operator=(char c){
+  delete[] c_str_;
 	char* ptr = new char[2];
 	ptr[0] = c;
 	ptr[size_] = '\0';
@@ -91,6 +92,7 @@ void String::resize(size_t n, char c){
 			ptr[i] = c_str_[i];
 		}
 		ptr[n] = '\0';
+ 		delete[] c_str_;
 		c_str_ = ptr;
 		size_ = n;
 	}
@@ -105,6 +107,7 @@ void String::resize(size_t n, char c){
 			ptr[j] = c;
 		}
 		ptr[n] = '\0';
+		delete[] c_str_;
 		c_str_ = ptr;
 		size_ = n;
 	}
@@ -122,6 +125,7 @@ void String::reserve(size_t n){
 		for (int i = 0; i < size_ + 1; ++i){ //copie la chaîne de caractère dans le nouvel espace alloué
 			future_c_str[i] = c_str_[i];
 		}
+		delete[] c_str_;
 		c_str_ = future_c_str;
 		capacity_ = n;
 		
