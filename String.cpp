@@ -7,13 +7,18 @@ const size_t String::MAX_SIZE;
 
 //Constructors
 String::String(const String& tocopy){
-	//copying attributs of tocopy in 
+	//copying attributs of tocopy in
 	size_t t_size = tocopy.size_;
-	char * t_c_str = tocopy.c_str_;
+	//char * t_c_str = tocopy.c_str_;
 	size_t t_cap = tocopy.capacity_;
 	size_ = t_size;
-	c_str_ = t_c_str;
 	capacity_ = t_cap;
+	char* t_c_str = new char[capacity_];
+	int i;
+	for (i=0;i<size_;++i){
+		t_c_str[i] = tocopy.c_str_[i];
+	}
+	c_str_ = t_c_str;
 }
 	
 String::String(const char* cstr)
