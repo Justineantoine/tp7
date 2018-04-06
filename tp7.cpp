@@ -5,9 +5,11 @@
 
 void test_constructor_cstr();
 void test_length();
+void test_capacity();
 void test_copy_constructor();
 void test_to_string();
 void test_max_size();
+void test_empty();
 void test_c_str();
 void test_resize();
 void test_equal_operator_char();
@@ -17,9 +19,11 @@ int main(int argc, char* argv[]){
   std::cout << "Hello World !" << std::endl;
 	test_constructor_cstr();
 	test_length();
+	test_capacity();
 	test_copy_constructor();
 	//test_to_string();
   test_max_size();
+  test_empty();
 	test_c_str();
 	test_resize();
 	test_equal_operator_char();
@@ -39,6 +43,11 @@ void test_length(){
 	std::cout << str1.length() << std::endl;
 }
 
+void test_capacity(){
+	char chaine[] = "Bonjour";
+	String str1(chaine);
+	std::cout << "capacity_ =" << str1.capacity() << std::endl;
+}
 void test_copy_constructor(){
 	char chaine[] = "Bonjour";
 	String str1(chaine);
@@ -59,6 +68,14 @@ void test_max_size(){
   std::cout << "max_size = " << str.max_size() << std::endl;
 }
 
+void test_empty(){
+	char chaine1[] = "Bonjour";
+	String str1(chaine1);
+	std::cout << "string non vide =" << str1.empty() << std::endl;
+	char chaine2[] = "";
+	String str2(chaine2);
+	std::cout << "string vide =" << str2.empty() << std::endl;
+}
 void test_c_str(){
 	char chaine[] = "Bonjour";
 	String str(chaine);

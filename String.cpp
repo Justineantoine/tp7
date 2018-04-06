@@ -41,6 +41,14 @@ void String::to_string(){
 	}
 }
 
+const char* String::c_str() const{
+	return c_str_;
+}
+
+size_t String::capacity()
+{
+ return capacity_;
+}
 //Operators
 /*
 String& operator=(const char* s){
@@ -60,16 +68,22 @@ String& String::operator=(char c){
 	return *this; //Renvoie l'objet lui-même (qui a été modifié)
 }
 
+
+
 //Methodes
 
 size_t String::max_size() const{
 	return MAX_SIZE;
 }
 
-const char* String::c_str() const{
-	return c_str_;
+bool String::empty(){ //retourne "true" si la string est vide
+	if (size_ == 0){
+		return true;
+	}
+	else {
+		return false;
+	} 
 }
-
 void String::resize(size_t n, char c){
 	if (n < size_){
 		char* ptr = new char[n+1];
