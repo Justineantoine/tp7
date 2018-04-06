@@ -35,12 +35,6 @@ size_t String::length() const{
 	return size_;
 }
 
-void String::to_string(){
-	for(int i=0;i<=size_;++i){
-		printf("%s",c_str_[i]);
-	}
-}
-
 const char* String::c_str() const{
 	return c_str_;
 }

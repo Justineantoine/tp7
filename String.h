@@ -27,7 +27,6 @@ class String{
 	//Methodes
 	size_t length() const;
 	size_t capacity();
-	void to_string();
 	size_t max_size() const;
 	bool empty();
 	const char* c_str() const;

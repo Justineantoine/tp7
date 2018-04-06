@@ -17,14 +17,13 @@ void test_plus_operator_charptr();
 
 int main(int argc, char* argv[]){
   std::cout << "Hello World !" << std::endl;
-	test_constructor_cstr();
-	test_length();
+	//test_constructor_cstr();
+	//test_length();
 	test_capacity();
-	test_copy_constructor();
-	//test_to_string();
-  test_max_size();
+	//test_copy_constructor();
+  //test_max_size();
   test_empty();
-	test_c_str();
+	//test_c_str();
 	test_resize();
 	test_equal_operator_char();
 	test_plus_operator_charptr();
@@ -54,12 +53,6 @@ void test_copy_constructor(){
 	std::cout << &str1 << std::endl;
 	String str2(str1);
 	std::cout << &str2 << std::endl;
-}
-
-void test_to_string(){
-	char chaine[] = "Bonjour";
-	String s(chaine);
-	s.to_string();
 }
 
 void test_max_size(){
