@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
 	test_constructor_cstr();
 	test_length();
 	test_capacity();
-	//test_copy_constructor();
+	test_copy_constructor();
   test_max_size();
   test_empty();
 	test_c_str();
@@ -48,6 +48,7 @@ void test_capacity(){
 	std::cout << "capacity_ =" << str1.capacity() << std::endl;
 }
 void test_copy_constructor(){
+  std::cout << "Test copy constructor" << std::endl;
 	char chaine[] = "Bonjour";
 	String str1(chaine);
 	std::cout << &str1 << std::endl;
