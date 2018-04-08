@@ -63,7 +63,7 @@ size_t String::capacity() const
         c_str_[i] = s[i];
     } 
 	size_ = s_size - 1;
-	reserve(size_);
+	reserve(size_+1);
 	return *this;
 }
 
@@ -72,9 +72,10 @@ String& String::operator=(char c){
   	delete[] c_str_;
 	char* ptr = new char[2];
 	ptr[0] = c;
-	ptr[size_] = '\0';
+	ptr[1] = '\0';
 	c_str_ = ptr;
 	size_ = 1;
+	reserve(size_+1);
 	return *this; //Renvoie l'objet lui-même (qui a été modifié)
 }
 
@@ -105,6 +106,7 @@ void String::resize(size_t n, char c){
 		delete[] c_str_;
 		c_str_ = ptr;
 		size_ = n;
+		reserve(n+1);
 	}
 	if (n > size_){
 		char* ptr = new char[n+1];
@@ -120,6 +122,7 @@ void String::resize(size_t n, char c){
 		delete[] c_str_;
 		c_str_ = ptr;
 		size_ = n;
+		reserve(n+1);
 	}
 }
 
@@ -148,24 +151,20 @@ String::~String(){
 }
 
 String operator+(const String& lhs, const char* rhs){
-	String str1(lhs);
-	String str2(rhs);
-	size_t size1 = str1.length();
-	size_t size2 = str2.length();
+	String final(lhs);
+	size_t size1 = lhs.length();
+	int size2=0;
+    while(rhs[size2] != '\0'){
+        ++size2;
+      }
 	size_t size = size1 + size2;
-	char* ptr = new char[size+1];
-	int i;
-	for (i=0;i<size1;++i){
-		ptr[i] = str1.c_str_[i];
-	}
+	final.reserve(size+1);
 	int j;
-	for (j=size1;j<size;++j){
-		ptr[j] = str2.c_str_[j-size1];
+	for (j=size1;j<size+1;++j){
+		final.c_str_[j] = rhs[j-size1];
 	}
-	ptr[size] = '\0';
-	String str(ptr);
-	delete[] ptr;
-	return str;
+	final.size_ = size;
+	return(final);
 }
 
 String operator+(const String& lhs, const String& rhs){
