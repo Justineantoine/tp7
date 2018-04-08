@@ -167,3 +167,13 @@ String operator+(const String& lhs, const char* rhs){
 	delete[] ptr;
 	return str;
 }
+
+String operator+(const String& lhs, const String& rhs){
+	String final(lhs);
+	size_t final_size = lhs.size_ + rhs.size_;
+	final.reserve(final_size + 1); //il faut compter le '\0'
+	for (int i = 0 ; i < rhs.size_ + 1 ; ++i) {
+		final.c_str_[lhs.size_ + i] = rhs.c_str_[i];
+	}
+	return(final);
+}
