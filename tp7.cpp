@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include "String.h"
 
@@ -14,22 +14,24 @@ void test_c_str();
 void test_resize();
 void test_reserve();
 void test_equal_operator_char();
+void test_equal_operator_charet();
 void test_plus_operator_charptr();
 
 int main(int argc, char* argv[]){
-  std::cout << "Hello World !" << std::endl;
-	test_constructor_cstr();
-	test_length();
-	test_capacity();
-	test_copy_constructor();
-  test_max_size();
-  test_empty();
-	test_c_str();
-	test_resize();
-	test_reserve();
-	test_equal_operator_char();
-	test_plus_operator_charptr();
-  return 0;
+	std::cout << "Hello World !" << std::endl;
+		test_constructor_cstr();
+		test_length();
+		test_capacity();
+		test_copy_constructor();
+    	test_max_size();
+    	test_empty();
+		test_c_str();
+		test_resize();
+		test_reserve();
+		test_equal_operator_char();
+		test_equal_operator_charet();
+		test_plus_operator_charptr();
+	return 0;
 }
 
 void test_constructor_cstr(){
@@ -50,7 +52,7 @@ void test_capacity(){
 	std::cout << "capacity_ =" << str1.capacity() << std::endl;
 }
 void test_copy_constructor(){
-  std::cout << "Test copy constructor" << std::endl;
+  	std::cout << "Test copy constructor" << std::endl;
 	char chaine[] = "Bonjour";
 	String str1(chaine);
 	std::cout << &str1 << std::endl;
@@ -61,7 +63,7 @@ void test_copy_constructor(){
 void test_max_size(){
 	char chaine[] = "Bonjour";
 	String str(chaine);
-  std::cout << "max_size = " << str.max_size() << std::endl;
+  	std::cout << "max_size = " << str.max_size() << std::endl;
 }
 
 void test_empty(){
@@ -103,6 +105,16 @@ void test_equal_operator_char(){
 	char chaine[] = "Bonjour";
 	String str1(chaine);
 	str1 = 'A';
+	std::cout << "Test operator=" << std::endl;
+	std::cout << "Nouvelle chaine : " << str1.c_str() << std::endl;
+	std::cout << "Nouvelle taille : " << str1.length() << std::endl;
+}
+
+void test_equal_operator_charet(){
+	char chaine1[] = "Bonjour";
+	char chaine2[] = "Hello";
+	String str1(chaine1);
+	str1 = chaine2;
 	std::cout << "Test operator=" << std::endl;
 	std::cout << "Nouvelle chaine : " << str1.c_str() << std::endl;
 	std::cout << "Nouvelle taille : " << str1.length() << std::endl;

@@ -1,11 +1,11 @@
 #ifndef STRING_H
 #define STRING_H
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
 class String{
-  friend String operator+(const String& lhs, const char* rhs);
+    friend String operator+(const String& lhs, const char* rhs);
 
 	protected:
 	//Attributs
@@ -21,7 +21,7 @@ class String{
 	String(const char* cstr);
 
 	//Operators
-  //String& operator=(const char* s);
+    String& operator=(const char* s);
 	String& operator=(char c);
 
 	//Methodes
