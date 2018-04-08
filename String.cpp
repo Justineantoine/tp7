@@ -44,7 +44,7 @@ const char* String::c_str() const{
 	return c_str_;
 }
 
-size_t String::capacity()
+size_t String::capacity() const
 {
 	return capacity_;
 }
@@ -86,7 +86,7 @@ size_t String::max_size() const{
 	return MAX_SIZE;
 }
 
-bool String::empty(){ //retourne "1" si la string est vide
+bool String::empty() const{ //retourne "1" si la string est vide
 	if (size_ == 0){
 		return true;
 	}
@@ -175,5 +175,6 @@ String operator+(const String& lhs, const String& rhs){
 	for (int i = 0 ; i < rhs.size_ + 1 ; ++i) {
 		final.c_str_[lhs.size_ + i] = rhs.c_str_[i];
 	}
+	final.size_ = final_size;
 	return(final);
 }

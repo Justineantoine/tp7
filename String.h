@@ -26,9 +26,9 @@ class String{
 
 	//Methodes
 	size_t length() const;
-	size_t capacity();
+	size_t capacity() const;
 	size_t max_size() const;
-	bool empty();
+	bool empty() const;
 	const char* c_str() const;
 	void resize(size_t n, char c);
 	void reserve(size_t n);
