@@ -7,9 +7,9 @@
 const size_t String::MAX_SIZE;
 
 //Constructors
-	String::String(const String& tocopy){
+String::String(const String& tocopy){
 	//copying attributs of tocopy in
-	size_t t_size = tocopy.size_;
+	size_t t_size = tocopy.size_; //Necessaire de passer par un intermédiaire ?
 	//char * t_c_str = tocopy.c_str_;
 	size_t t_cap = tocopy.capacity_;
 	size_ = t_size;
@@ -37,6 +37,10 @@ String::String(const char* cstr)
 //Getters
 
 size_t String::length() const{
+	return size_;
+}
+
+size_t String::size() const{
 	return size_;
 }
 
@@ -143,6 +147,12 @@ void String::reserve(size_t n){
 		capacity_ = n;
 		
 	}
+}
+
+void String::clear(){
+	delete[] c_str_;
+	capacity_=1;
+	size_=0;
 }
 
 //Destructor

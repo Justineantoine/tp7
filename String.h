@@ -17,7 +17,7 @@ class String{
 	const static size_t MAX_SIZE = 150;	
 
 	//Constructors/Destructor
-  String(const String& tocopy);
+	String(const String& tocopy);
 	String(const char* cstr);
 
 	//Operators
@@ -26,12 +26,14 @@ class String{
 
 	//Methodes
 	size_t length() const;
+	size_t size() const;
 	size_t capacity() const;
 	size_t max_size() const;
 	bool empty() const;
 	const char* c_str() const;
 	void resize(size_t n, char c);
 	void reserve(size_t n);
+	void clear();
 
 
 	//Destructor

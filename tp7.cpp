@@ -16,6 +16,7 @@ void test_equal_operator_char(String s, char letter);
 void test_equal_operator_charptr(String s, char * chaine);
 void test_plus_operator_charptr(String s, char* chaine);
 void test_plus_operator_string(String s1, String s2);
+void test_clear(String s);
 
 int main(int argc, char* argv[]){
 	std::cout << "Hello World !" << std::endl;
@@ -36,12 +37,15 @@ int main(int argc, char* argv[]){
     test_max_size(str1);
     test_empty(str1, strvide);
 	test_c_str(str1);
-	test_resize(str1, strvide);
+	test_resize(str1, str1);
 	test_reserve(str1);
 	test_equal_operator_char(str1, 'A');
 	test_equal_operator_charptr(str1, chaine2);
 	test_plus_operator_charptr(str1, chaine3);
 	test_plus_operator_string(str1, str2);
+	test_clear(str1);
+
+
 	return 0;
 }
 
@@ -131,4 +135,14 @@ void test_plus_operator_string(String s1, String s2){
 	std::cout << "Test operator+ (string)" << std::endl;
 	std::cout << "Nouvelle chaine : " << s3.c_str() << std::endl;
 	std::cout << "Nouvelle taille : " << s3.length() << std::endl;
+}
+
+void test_clear(String s){
+	std::cout << "Chaîne avant clear :" << s.c_str() << std::endl;
+	std::cout << "capacité avant clear :" << s.capacity() << std::endl;
+	std::cout << "Taille avant clear :" << s.size() << std::endl;
+	s.clear();
+	std::cout << "Chaîne après clear :" << s.c_str() << std::endl;
+	std::cout << "capacité après clear :" << s.capacity() << std::endl;
+	std::cout << "Taille après clear :" << s.size() << std::endl;
 }
