@@ -7,6 +7,7 @@
 class String{
     friend String operator+(const String& lhs, const char* rhs);
     friend String operator+(const String& lhs, const String& rhs);
+    friend String operator+(const String& lhs, char rhs);
 	protected:
 	//Attributs
 	size_t size_;
@@ -44,7 +45,7 @@ class String{
 
 String operator+ (const String& lhs, const char* rhs);
 String operator+(const String& lhs, const String& rhs);
-//String operator+(const String& lhs, char rhs);
+String operator+(const String& lhs, char rhs);
 
 
 

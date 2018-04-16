@@ -16,7 +16,9 @@ void test_equal_operator_char(String s, char letter);
 void test_equal_operator_charptr(String s, char * chaine);
 void test_plus_operator_charptr(String s, char* chaine);
 void test_plus_operator_string(String s1, String s2);
+void test_plus_operator_char(String s, char c);
 void test_clear(String s);
+
 
 int main(int argc, char* argv[]){
 	std::cout << "Hello World !" << std::endl;
@@ -24,7 +26,7 @@ int main(int argc, char* argv[]){
 	test_copy_constructor(); //on vérifie les constructeurs
 
 	/* CONSTRUCTION DE STRING POUR LES TESTS */
-	char chaine1[] = "Bonjour";
+	char chaine1[] = "Bonjour l'ami";
 	String str1(chaine1);
 	char vide[] = "";
 	String strvide(vide);
@@ -32,18 +34,19 @@ int main(int argc, char* argv[]){
 	char chaine3[] = ", ça va ?";
 	String str2(chaine3);
 
-	test_length(str1);
-	test_capacity(str1);
-    test_max_size(str1);
-    test_empty(str1, strvide);
-	test_c_str(str1);
-	test_resize(str1, str1);
-	test_reserve(str1);
-	test_equal_operator_char(str1, 'A');
-	test_equal_operator_charptr(str1, chaine2);
-	test_plus_operator_charptr(str1, chaine3);
-	test_plus_operator_string(str1, str2);
-	test_clear(str1);
+	//test_length(str1);
+	//test_capacity(str1);
+    //test_max_size(str1);
+    //test_empty(str1, strvide);
+	//test_c_str(str1);
+	//test_resize(str1, str1);
+	//test_reserve(str1);
+	//test_equal_operator_char(str1, 'A');
+	//test_equal_operator_charptr(str1, chaine2);
+	//test_plus_operator_charptr(str1, chaine3);
+	//test_plus_operator_string(str1, str2);
+	test_plus_operator_char(str1, 'e');
+	//test_clear(str1);
 
 
 	return 0;
@@ -135,6 +138,15 @@ void test_plus_operator_string(String s1, String s2){
 	std::cout << "Test operator+ (string)" << std::endl;
 	std::cout << "Nouvelle chaine : " << s3.c_str() << std::endl;
 	std::cout << "Nouvelle taille : " << s3.length() << std::endl;
+}
+
+void test_plus_operator_char(String s, char c){
+	
+	std::cout << "Test operator+ (char)" << std::endl;
+	std::cout << "Chaîne : " << s.c_str() << std::endl;
+	String new_s = s+c;
+	std::cout << "Nouvelle chaine : " << new_s.c_str() << std::endl;
+	std::cout << "Nouvelle taille : " << new_s.length() << std::endl;
 }
 
 void test_clear(String s){

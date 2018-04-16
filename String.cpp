@@ -159,34 +159,40 @@ String::~String(){
 }
 
 String operator+(const String& lhs, const char* rhs){
-	String final(lhs);
+	String finals(lhs);
 	size_t size1 = lhs.length();
 	int size2=0;
     while(rhs[size2] != '\0'){
         ++size2;
       }
 	size_t size = size1 + size2;
-	final.reserve(size+1);
+	finals.reserve(size+1);
 	int j;
 	for (j=size1;j<size+1;++j){
-		final.c_str_[j] = rhs[j-size1];
+		finals.c_str_[j] = rhs[j-size1];
 	}
-	final.size_ = size;
-	return(final);
+	finals.size_ = size;
+	return(finals);
 }
 
 String operator+(const String& lhs, const String& rhs){
-	String final(lhs);
+	String finals(lhs);
 	size_t final_size = lhs.size_ + rhs.size_;
-	final.reserve(final_size + 1); //il faut compter le '\0'
+	finals.reserve(final_size + 1); //il faut compter le '\0'
 	for (int i = 0 ; i < rhs.size_ + 1 ; ++i) {
-		final.c_str_[lhs.size_ + i] = rhs.c_str_[i];
+		finals.c_str_[lhs.size_ + i] = rhs.c_str_[i];
 	}
-	final.size_ = final_size;
-	return(final);
+	finals.size_ = final_size;
+	return(finals);
 }
 
-/*
+
 String operator+(const String& lhs, char rhs){
-*/
+	String finals(lhs);
+	size_t final_size = lhs.size() +1;
+	finals.reserve(final_size+1);//Ici on a une chaîne de caractère terminée par /0 puis une case non utilisée
+	finals.c_str_[final_size-1] = rhs;//On remplace le /0 par le caractère à ajouter
+	finals.size_ = final_size;
+	return finals;
+}
 	
