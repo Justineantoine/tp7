@@ -21,7 +21,7 @@ class String{
 	String(const char* cstr);
 
 	//Operators
-    String& operator=(const char* s);
+   	String& operator=(const char* s);
 	String& operator=(char c);
 
 	//Methodes
@@ -44,6 +44,7 @@ class String{
 
 String operator+ (const String& lhs, const char* rhs);
 String operator+(const String& lhs, const String& rhs);
+//String operator+(const String& lhs, char rhs);
 
 
 

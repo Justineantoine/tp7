@@ -141,8 +141,10 @@ void test_clear(String s){
 	std::cout << "Chaîne avant clear :" << s.c_str() << std::endl;
 	std::cout << "capacité avant clear :" << s.capacity() << std::endl;
 	std::cout << "Taille avant clear :" << s.size() << std::endl;
+	std::cout << "Vide ? " << s.empty() << std::endl;
 	s.clear();
 	std::cout << "Chaîne après clear :" << s.c_str() << std::endl;
 	std::cout << "capacité après clear :" << s.capacity() << std::endl;
 	std::cout << "Taille après clear :" << s.size() << std::endl;
+	std::cout << "Vide ? " << s.empty() << std::endl;
 }

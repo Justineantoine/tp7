@@ -150,9 +150,7 @@ void String::reserve(size_t n){
 }
 
 void String::clear(){
-	delete[] c_str_;
-	capacity_=1;
-	size_=0;
+	resize(0,'x');
 }
 
 //Destructor
@@ -187,3 +185,8 @@ String operator+(const String& lhs, const String& rhs){
 	final.size_ = final_size;
 	return(final);
 }
+
+/*
+String operator+(const String& lhs, char rhs){
+*/
+	
