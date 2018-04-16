@@ -24,6 +24,7 @@ class String{
 	//Operators
    	String& operator=(const char* s);
 	String& operator=(char c);
+	String& operator=(String s);
 
 	//Methodes
 	size_t length() const;

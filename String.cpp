@@ -54,7 +54,7 @@ size_t String::capacity() const
 }
 //Operators
 
- String& String::operator=(const char* s){
+String& String::operator=(const char* s){
 	delete[] c_str_;
 	int s_size = 0;
 	while(s[s_size] != '\0'){
@@ -83,6 +83,19 @@ String& String::operator=(char c){
 	return *this; //Renvoie l'objet lui-même (qui a été modifié)
 }
 
+String& String::operator=(String s){
+	delete[] c_str_;
+	size_t new_size = s.size();
+	char* ptr = new char[new_size +1];
+	for(int i=0;i<new_size;++i){
+		ptr[i] = s.c_str_[i];
+	}
+	ptr[new_size] = '\0';
+	c_str_=ptr;
+	size_=new_size;
+	reserve(size_+1);
+	return *this;
+}
 
 
 //Methodes

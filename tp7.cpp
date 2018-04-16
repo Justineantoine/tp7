@@ -14,6 +14,7 @@ void test_resize(String s1, String s2);
 void test_reserve(String s);
 void test_equal_operator_char(String s, char letter);
 void test_equal_operator_charptr(String s, char * chaine);
+void test_equal_operator_string(String s1, String s2);
 void test_plus_operator_charptr(String s, char* chaine);
 void test_plus_operator_string(String s1, String s2);
 void test_plus_operator_char(String s, char c);
@@ -31,7 +32,7 @@ int main(int argc, char* argv[]){
 	char vide[] = "";
 	String strvide(vide);
 	char chaine2[] = "Hello";
-	char chaine3[] = ", ça va ?";
+	char chaine3[] = ", ça va ?"; //Apparemment le ç compte pour 2 caractères.
 	String str2(chaine3);
 
 	//test_length(str1);
@@ -43,6 +44,7 @@ int main(int argc, char* argv[]){
 	//test_reserve(str1);
 	//test_equal_operator_char(str1, 'A');
 	//test_equal_operator_charptr(str1, chaine2);
+	test_equal_operator_string(str1, str2);
 	//test_plus_operator_charptr(str1, chaine3);
 	//test_plus_operator_string(str1, str2);
 	test_plus_operator_char(str1, 'e');
@@ -124,6 +126,16 @@ void test_equal_operator_charptr(String s, char* chaine){
 	std::cout << "Test operator= (char*)" << std::endl;
 	std::cout << "Nouvelle chaine : " << s.c_str() << std::endl;
 	std::cout << "Nouvelle taille : " << s.length() << std::endl;
+}
+
+void test_equal_operator_string(String s1, String s2){
+	std::cout << "Test operator= (String)" << std::endl;
+	std::cout << "Taille s1 : " << s1.size() << std::endl;
+	std::cout << "Taille s2 : " << s2.size() << std::endl;
+	std::cout << "Chaîne s1: " << s1.c_str() << std::endl;
+	s1 = s2;
+	std::cout << "Nouvelle chaine s1: " << s1.c_str() << std::endl;
+	std::cout << "Nouvelle taille s1: " << s1.size() << std::endl;
 }
 
 void test_plus_operator_charptr(String s, char* chaine){
