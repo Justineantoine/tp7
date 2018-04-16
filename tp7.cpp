@@ -19,6 +19,7 @@ void test_plus_operator_charptr(String s, char* chaine);
 void test_plus_operator_string(String s1, String s2);
 void test_plus_operator_char(String s, char c);
 void test_clear(String s);
+void see_cedillia();
 
 
 int main(int argc, char* argv[]){
@@ -49,6 +50,7 @@ int main(int argc, char* argv[]){
 	//test_plus_operator_string(str1, str2);
 	test_plus_operator_char(str1, 'e');
 	//test_clear(str1);
+	see_cedillia();
 
 
 	return 0;
@@ -156,6 +158,7 @@ void test_plus_operator_char(String s, char c){
 	
 	std::cout << "Test operator+ (char)" << std::endl;
 	std::cout << "Chaîne : " << s.c_str() << std::endl;
+	std::cout << "Taille : " << s.length() << std::endl;
 	String new_s = s+c;
 	std::cout << "Nouvelle chaine : " << new_s.c_str() << std::endl;
 	std::cout << "Nouvelle taille : " << new_s.length() << std::endl;
@@ -171,4 +174,13 @@ void test_clear(String s){
 	std::cout << "capacité après clear :" << s.capacity() << std::endl;
 	std::cout << "Taille après clear :" << s.size() << std::endl;
 	std::cout << "Vide ? " << s.empty() << std::endl;
+}
+
+void see_cedillia(){
+	char chaine[] = "ç";
+	String s(chaine);
+	size_t size = s.size();
+	for(int i=0;i<size;++i){
+		std::cout<<chaine[i]<<std::endl;//Il y a bien deux caractères
+	}
 }
