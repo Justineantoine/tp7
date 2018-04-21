@@ -22,7 +22,7 @@ class String{
 	String(const char* cstr);
 
 	//Operators
-   	String& operator=(const char* s);
+  String& operator=(const char* s);
 	String& operator=(char c);
 	String& operator=(String s);
 

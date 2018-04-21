@@ -8,7 +8,7 @@ const size_t String::MAX_SIZE;
 
 //Constructors
 String::String(const String& tocopy){
-	//copying attributs of tocopy in
+	//copying attributes of tocopy in a new String
 	size_t t_size = tocopy.size_; //Necessaire de passer par un intermédiaire ?
 	//char * t_c_str = tocopy.c_str_;
 	size_t t_cap = tocopy.capacity_;
@@ -30,7 +30,7 @@ String::String(const char* cstr)
 	ptr[size_]=0;
 	strcpy(ptr,cstr);
 	capacity_ = size_ + 1;      
-	c_str_=ptr;      
+	c_str_=ptr;
 }
 
 
@@ -83,6 +83,9 @@ String& String::operator=(char c){
 	return *this; //Renvoie l'objet lui-même (qui a été modifié)
 }
 
+/*Pre-conditions : None
+Post-conditions : The this String argument will have the same atributes as s argument. the c_str_ has the same content but a different adress
+Return : The modified String passed as this argument*/
 String& String::operator=(String s){
 	delete[] c_str_;
 	size_t new_size = s.size();
@@ -104,7 +107,8 @@ size_t String::max_size() const{
 	return MAX_SIZE;
 }
 
-bool String::empty() const{ //retourne "1" si la string est vide
+/*Return : 1 if empty, 0 if not empty*/
+bool String::empty() const{
 	if (size_ == 0){
 		return true;
 	}
@@ -162,13 +166,16 @@ void String::reserve(size_t n){
 	}
 }
 
+/*Pre-conditions : None
+Post-conditions :Erases the content of c_str_ and reduces capacity_ and size_. The 'x' argument has no utility here as 0 will always be inferior or equal to the actual size of the String*/
 void String::clear(){
 	resize(0,'x');
 }
 
 //Destructor
 String::~String(){
-	delete[] c_str_;
+	//delete[] c_str_;
+	resize(0,'x');
 }
 
 String operator+(const String& lhs, const char* rhs){
@@ -199,12 +206,14 @@ String operator+(const String& lhs, const String& rhs){
 	return(finals);
 }
 
-
+/*Pre-conditions : None
+Post-conditions : None
+Return : A String constructed from lhs with the char rhs at the end of c_str_.*/
 String operator+(const String& lhs, char rhs){
-	String finals(lhs);
+	String finals(lhs); //On copie lhs dans un nouveau String
 	size_t final_size = lhs.size() +1;
 	finals.reserve(final_size+1);//Ici on a une chaîne de caractère terminée par /0 puis une case non utilisée
-	finals.c_str_[final_size-1] = rhs;//On remplace le /0 par le caractère à ajouter
+	finals.c_str_[final_size-1] = rhs;//On remplace le /0 par le caractère à ajouter.
 	finals.size_ = final_size;
 	return finals;
 }

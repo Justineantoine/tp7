@@ -38,8 +38,8 @@ int main(int argc, char* argv[]){
 
 	//test_length(str1);
 	//test_capacity(str1);
-    //test_max_size(str1);
-    //test_empty(str1, strvide);
+  //test_max_size(str1);
+  //test_empty(str1, strvide);
 	//test_c_str(str1);
 	//test_resize(str1, str1);
 	//test_reserve(str1);
@@ -180,7 +180,8 @@ void see_cedillia(){
 	char chaine[] = "ç";
 	String s(chaine);
 	size_t size = s.size();
+	std::cout<<"Code ASCII de la chaîne 'ç' :"<<std::endl;
 	for(int i=0;i<size;++i){
-		std::cout<<chaine[i]<<std::endl;//Il y a bien deux caractères
+		std::cout<<int(chaine[i])<<std::endl;//Il y a bien deux caractères
 	}
 }
