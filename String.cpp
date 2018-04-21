@@ -174,8 +174,9 @@ void String::clear(){
 
 //Destructor
 String::~String(){
-	//delete[] c_str_;
-	resize(0,'x');
+	delete[] c_str_;
+	size_=0;
+	capacity_=0;
 }
 
 String operator+(const String& lhs, const char* rhs){
