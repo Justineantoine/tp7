@@ -9,8 +9,7 @@ const size_t String::MAX_SIZE;
 //Constructors
 String::String(const String& tocopy){
 	//copying attributes of tocopy in a new String
-	size_t t_size = tocopy.size_; //Necessaire de passer par un intermédiaire ?
-	//char * t_c_str = tocopy.c_str_;
+	size_t t_size = tocopy.size_;
 	size_t t_cap = tocopy.capacity_;
 	size_ = t_size;
 	capacity_ = t_cap;
@@ -22,14 +21,13 @@ String::String(const String& tocopy){
 	c_str_ = t_c_str;
 }
 	
-String::String(const char* cstr)
-{
+String::String(const char* cstr){
 	long Size = strlen(cstr);
 	size_ = Size;
 	char* ptr = new char[size_+1];
 	ptr[size_]=0;
 	strcpy(ptr,cstr);
-	capacity_ = size_ + 1;      
+	capacity_ = size_ + 1; 
 	c_str_=ptr;
 }
 
@@ -48,10 +46,14 @@ const char* String::c_str() const{
 	return c_str_;
 }
 
-size_t String::capacity() const
-{
+size_t String::capacity() const{
 	return capacity_;
 }
+
+size_t String::max_size() const{
+	return MAX_SIZE;
+}
+
 //Operators
 
 String& String::operator=(const char* s){
@@ -100,12 +102,50 @@ String& String::operator=(String s){
 	return *this;
 }
 
+String operator+(const String& lhs, const char* rhs){
+	String finals(lhs);
+	size_t size1 = lhs.length();
+	int size2=0;
+    while(rhs[size2] != '\0'){
+        ++size2;
+      }
+	size_t size = size1 + size2;
+	finals.reserve(size+1);
+	int j;
+	for (j=size1;j<size+1;++j){
+		finals.c_str_[j] = rhs[j-size1];
+	}
+	finals.size_ = size;
+	return(finals);
+}
+
+String operator+(const String& lhs, const String& rhs){
+	String finals(lhs);
+	size_t final_size = lhs.size_ + rhs.size_;
+	finals.reserve(final_size + 1); //il faut compter le '\0'
+	for (int i = 0 ; i < rhs.size_ + 1 ; ++i) {
+		finals.c_str_[lhs.size_ + i] = rhs.c_str_[i];
+	}
+	finals.size_ = final_size;
+	return(finals);
+}
+
+/*Pre-conditions : None
+Post-conditions : None
+Return : A String constructed from lhs with the char rhs at the end of c_str_.*/
+String operator+(const String& lhs, char rhs){
+	String finals(lhs); //On copie lhs dans un nouveau String
+	size_t final_size = lhs.size() +1;
+	finals.reserve(final_size+1);//Ici on a une chaîne de caractère terminée par /0 puis une case non utilisée
+	finals.c_str_[final_size-1] = rhs;//On remplace le /0 par le caractère à ajouter.
+	finals.c_str_[final_size] = '\0';
+	finals.size_ = final_size;
+	return finals;
+}
+
 
 //Methodes
 
-size_t String::max_size() const{
-	return MAX_SIZE;
-}
 
 /*Return : 1 if empty, 0 if not empty*/
 bool String::empty() const{
@@ -116,6 +156,7 @@ bool String::empty() const{
 		return false;
 	} 
 }
+
 void String::resize(size_t n, char c){
 	if (n < size_){
 		char* ptr = new char[n+1];
@@ -173,49 +214,10 @@ void String::clear(){
 }
 
 //Destructor
+
 String::~String(){
 	delete[] c_str_;
-	size_=0;
-	capacity_=0;
 }
 
-String operator+(const String& lhs, const char* rhs){
-	String finals(lhs);
-	size_t size1 = lhs.length();
-	int size2=0;
-    while(rhs[size2] != '\0'){
-        ++size2;
-      }
-	size_t size = size1 + size2;
-	finals.reserve(size+1);
-	int j;
-	for (j=size1;j<size+1;++j){
-		finals.c_str_[j] = rhs[j-size1];
-	}
-	finals.size_ = size;
-	return(finals);
-}
 
-String operator+(const String& lhs, const String& rhs){
-	String finals(lhs);
-	size_t final_size = lhs.size_ + rhs.size_;
-	finals.reserve(final_size + 1); //il faut compter le '\0'
-	for (int i = 0 ; i < rhs.size_ + 1 ; ++i) {
-		finals.c_str_[lhs.size_ + i] = rhs.c_str_[i];
-	}
-	finals.size_ = final_size;
-	return(finals);
-}
-
-/*Pre-conditions : None
-Post-conditions : None
-Return : A String constructed from lhs with the char rhs at the end of c_str_.*/
-String operator+(const String& lhs, char rhs){
-	String finals(lhs); //On copie lhs dans un nouveau String
-	size_t final_size = lhs.size() +1;
-	finals.reserve(final_size+1);//Ici on a une chaîne de caractère terminée par /0 puis une case non utilisée
-	finals.c_str_[final_size-1] = rhs;//On remplace le /0 par le caractère à ajouter.
-	finals.size_ = final_size;
-	return finals;
-}
 	

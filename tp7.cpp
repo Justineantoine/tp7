@@ -36,6 +36,9 @@ int main(int argc, char* argv[]){
 	char chaine3[] = ", ça va ?"; //Apparemment le ç compte pour 2 caractères.
 	String str2(chaine3);
 
+
+	/*DECOMMENTER LES METHODES POUR VOIR LEUR APPLICATION*/
+
 	//test_length(str1);
 	//test_capacity(str1);
   //test_max_size(str1);
@@ -45,12 +48,12 @@ int main(int argc, char* argv[]){
 	//test_reserve(str1);
 	//test_equal_operator_char(str1, 'A');
 	//test_equal_operator_charptr(str1, chaine2);
-	test_equal_operator_string(str1, str2);
+	//test_equal_operator_string(str1, str2);
 	//test_plus_operator_charptr(str1, chaine3);
 	//test_plus_operator_string(str1, str2);
-	test_plus_operator_char(str1, 'e');
+	//test_plus_operator_char(str1, 'e');
 	//test_clear(str1);
-	see_cedillia();
+	//see_cedillia();
 
 
 	return 0;
@@ -64,7 +67,8 @@ void test_constructor_cstr(){
 }
 
 void test_copy_constructor(){
-  	std::cout << "Test copy constructor" << std::endl;
+  printf("\n");
+  std::cout << "Test copy constructor" << std::endl;
 	char chaine[] = "Bonjour";
 	String str1(chaine);
 	std::cout << &str1 << std::endl;
@@ -73,50 +77,60 @@ void test_copy_constructor(){
 }
 
 void test_length(const String& s){
+	printf("\n");
 	std::cout << "Test getter length()" << std::endl;
 	std::cout << s.length() << std::endl;
 }
 
 void test_capacity(const String& s){
+	printf("\n");
 	std::cout << "Test getter capacity()" << std::endl;
 	std::cout << s.capacity() << std::endl;
 }
 
 
 void test_max_size(const String& s){
-  	std::cout << "Test getter max_size()" << std::endl;
-  	std::cout << s.max_size() << std::endl;
+  printf("\n");
+  std::cout << "Test getter max_size()" << std::endl;
+  std::cout << s.max_size() << std::endl;
 }
 
 void test_empty(const String& s1, const String& s2){
+	printf("\n");
 	std::cout << "Test boolean empty()" << std::endl;
 	std::cout << "string non vide =" << s1.empty() << std::endl;
 	std::cout << "string vide =" << s2.empty() << std::endl;
 }
 void test_c_str(const String& s){
+	printf("\n");
 	std::cout << "Test getter c_str() : " << std::endl;
 	std::cout << s.c_str() << std::endl;
 }
 
 void test_resize(String s1, String s2){
+	printf("\n");
 	s1.resize(4,'d');
 	std::cout << "Test resize() avec n < size_" << std::endl;
 	std::cout << "Nouvelle taille : " << s1.length() << std::endl;
 	std::cout << "Nouvelle chaine : " << s1.c_str() << std::endl;
 
-	s2.resize(10,'d');
+	printf("\n");
+	s2.resize(18,'d');
 	std::cout << "Test resize() avec n > size_" << std::endl;
 	std::cout << "Nouvelle taille : " << s2.length() << std::endl;
 	std::cout << "Nouvelle chaine : " << s2.c_str() << std::endl;
 }
 
 void test_reserve(String s){
-	s.reserve(10);
+	printf("\n");
 	std::cout << "Test reserve()" << std::endl;
+	std::cout << "capacité : " << s.capacity() << std::endl;
+	s.reserve(18);
 	std::cout << "nouvelle capacité : " << s.capacity() << std::endl;
 }	
 	
 void test_equal_operator_char(String s, char letter){
+	printf("\n");
 	s = letter;
 	std::cout << "Test operator= (char)" << std::endl;
 	std::cout << "Nouvelle chaine : " << s.c_str() << std::endl;
@@ -124,6 +138,7 @@ void test_equal_operator_char(String s, char letter){
 }
 
 void test_equal_operator_charptr(String s, char* chaine){
+	printf("\n");
 	s = chaine;
 	std::cout << "Test operator= (char*)" << std::endl;
 	std::cout << "Nouvelle chaine : " << s.c_str() << std::endl;
@@ -131,6 +146,7 @@ void test_equal_operator_charptr(String s, char* chaine){
 }
 
 void test_equal_operator_string(String s1, String s2){
+	printf("\n");
 	std::cout << "Test operator= (String)" << std::endl;
 	std::cout << "Taille s1 : " << s1.size() << std::endl;
 	std::cout << "Taille s2 : " << s2.size() << std::endl;
@@ -141,6 +157,7 @@ void test_equal_operator_string(String s1, String s2){
 }
 
 void test_plus_operator_charptr(String s, char* chaine){
+	printf("\n");
 	String str = s + chaine;
 	std::cout << "Test operator+ (char*)" << std::endl;
 	std::cout << "Nouvelle chaine : " << str.c_str() << std::endl;
@@ -148,6 +165,7 @@ void test_plus_operator_charptr(String s, char* chaine){
 }
 
 void test_plus_operator_string(String s1, String s2){
+	printf("\n");
 	String s3 = s1 + s2;
 	std::cout << "Test operator+ (string)" << std::endl;
 	std::cout << "Nouvelle chaine : " << s3.c_str() << std::endl;
@@ -155,7 +173,7 @@ void test_plus_operator_string(String s1, String s2){
 }
 
 void test_plus_operator_char(String s, char c){
-	
+	printf("\n");
 	std::cout << "Test operator+ (char)" << std::endl;
 	std::cout << "Chaîne : " << s.c_str() << std::endl;
 	std::cout << "Taille : " << s.length() << std::endl;
@@ -165,6 +183,7 @@ void test_plus_operator_char(String s, char c){
 }
 
 void test_clear(String s){
+	printf("\n");
 	std::cout << "Chaîne avant clear :" << s.c_str() << std::endl;
 	std::cout << "capacité avant clear :" << s.capacity() << std::endl;
 	std::cout << "Taille avant clear :" << s.size() << std::endl;
@@ -177,6 +196,7 @@ void test_clear(String s){
 }
 
 void see_cedillia(){
+	printf("\n");
 	char chaine[] = "ç";
 	String s(chaine);
 	size_t size = s.size();
